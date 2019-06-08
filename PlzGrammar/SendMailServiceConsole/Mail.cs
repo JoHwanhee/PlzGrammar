@@ -10,16 +10,16 @@
             _mailService.Send(this);
         }
 
-        public static Mail New()
+        public static Mail New(string contents, string to)
         {
             var mail = new Mail
             {
                 Properties = new MailProperties
                 {
                     Subject = "Test",
-                    Contents = "Test",
+                    Contents = contents,
                     From = "kikiki0611@gmail.com",
-                    To = "kikiki0611@gmail.com"
+                    To = to
                 }
             };
             
