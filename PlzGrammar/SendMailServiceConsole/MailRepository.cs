@@ -8,6 +8,7 @@ namespace SendMailServiceConsole
 
         public void SendAllMails()
         {
+           
             foreach (var mail in _mails)
             {
                 mail.Send();

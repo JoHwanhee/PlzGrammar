@@ -8,5 +8,10 @@ namespace SendMailServiceConsole
         {
             return new List<Subscriber>();
         }
+
+        public void Push()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

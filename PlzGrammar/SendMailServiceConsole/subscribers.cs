@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace SendMailServiceConsole
 {
-    internal class Subscribers
+    class Subscribers
     {
         public bool IsLoaded { get; } = false;
 
@@ -12,30 +13,76 @@ namespace SendMailServiceConsole
         private List<Subscriber> _subscribers = new List<Subscriber>();
         public List<Subscriber> List => _subscribers;
 
-        private bool _running = false;
+        private bool _runningRecconect = true;
+        private bool _runningSync = false;
+        private int _reconnectCount = 0;
 
-        private Subscribers()
+        public Subscribers()
         {
+            StartToSyncData();
+            StartToReconnect();
         }
 
-        private void StartSync()
+        private void StartToSyncData()
         {
-            Task.Factory.StartNew(DoWork);
+            Task.Factory.StartNew(DoSyncData);
+
+        }
+        private void StartToReconnect()
+        {
+            Task.Factory.StartNew(CheckReconnect);
         }
 
-        private void DoWork()
+        private void DoSyncData()
         {
-            _running = true;
+            _runningSync = true;
 
-            while (_running)
+            while (_runningSync)
             {
-                Thread.Sleep(200);
+                try
+                {
+                    Load();
+                    
+                    Thread.Sleep(200);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    _runningSync = false;
+                }
             }
+        }
+
+        private void CheckReconnect()
+        {
+            while (_runningRecconect && _reconnectCount < 3)
+            {
+                try
+                {
+                    if (!_runningSync)
+                    {
+                        StartToSyncData();
+                        _reconnectCount++;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    _runningRecconect = false;
+                }
+            }
+
+            // todo : log
         }
 
         private void Load()
         {
             _subscribers = _mongoDb.GetSubscribers();
+        }
+
+        public void PushSubscriberToDb()
+        {
+            _mongoDb.Push();
         }
     }
 };
