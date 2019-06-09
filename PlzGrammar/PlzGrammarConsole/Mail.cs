@@ -1,4 +1,6 @@
-﻿namespace SendMailServiceConsole
+﻿using SendMailServiceConsole;
+
+namespace PlzGrammarConsole
 {
     class Mail
     {

@@ -1,13 +1,38 @@
 ﻿using System;
+using Grapevine.Core.Server;
+using SendMailServiceConsole;
 
-namespace SendMailServiceConsole
+namespace PlzGrammarConsole
 {
-    internal class Program
+    internal class PlzGrammarServer
     {
-        private static void Main(string[] args)
+        private RestServer _restServer;
+        public PlzGrammarServer()
         {
-            Console.WriteLine("Hello World!");
+        }
 
+        public void Start()
+        {
+            SendMail();
+
+            _restServer?.Stop();
+
+            if (_restServer == null)
+            {
+                _restServer = new RestServer();
+            }
+
+            _restServer.LogToConsole().Start();
+        }
+
+        public void Stop()
+        {
+            _restServer.Stop();
+            _restServer.Dispose();
+        }
+
+        private void SendMail()
+        {
             Subscribers subscribers = new Subscribers();
 
             Subscriber[] subscriberArray = new Subscriber[subscribers.List.Count];
@@ -16,15 +41,15 @@ namespace SendMailServiceConsole
             MailRepository mailRepository = new MailRepository();
             ContentsManager contentsManager = new ContentsManager();
 
-            foreach (var subscriber in subscriberArray)
+            foreach (Subscriber subscriber in subscriberArray)
             {
                 switch (subscriber.SubscribeType)
                 {
                     case SubscribeTypes.None:
                         break;
                     case SubscribeTypes.Email:
-                        var toAddress = subscriber.GetTarget();
-                        var contents = contentsManager.GetContents(DateTime.Today);
+                        string toAddress = subscriber.GetTarget();
+                        string contents = contentsManager.GetContents(DateTime.Today);
 
                         mailRepository.Add(Mail.New(contents, toAddress));
                         break;

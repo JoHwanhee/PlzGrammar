@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SendMailServiceConsole
+namespace PlzGrammarConsole
 {
     class ContentsManager
     {
