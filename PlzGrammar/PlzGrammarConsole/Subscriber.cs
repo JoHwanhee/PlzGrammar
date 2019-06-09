@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using SendMailServiceConsole;
 
-namespace SendMailServiceConsole
+namespace PlzGrammarConsole
 {
     class Subscriber
     {

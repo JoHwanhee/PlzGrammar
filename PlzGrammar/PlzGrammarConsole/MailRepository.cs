@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SendMailServiceConsole
+namespace PlzGrammarConsole
 {
     class MailRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace SendMailServiceConsole
+﻿namespace PlzGrammarConsole
 {
     class MailProperties
     {
