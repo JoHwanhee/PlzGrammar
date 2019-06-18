@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PlzGrammarConsole
+namespace PlzGrammarCore
 {
     class ContentsManager
     {

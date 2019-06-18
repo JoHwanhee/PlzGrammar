@@ -1,4 +1,4 @@
-namespace PlzGrammarConsole
+namespace PlzGrammarCore.Model
 {
     enum SubscribeTypes
     {

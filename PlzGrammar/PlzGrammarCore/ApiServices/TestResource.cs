@@ -3,7 +3,7 @@ using Grapevine.Core.Server;
 using Grapevine.Core.Server.Attributes;
 using Grapevine.Core.Shared;
 
-namespace SendMailServiceConsole.ApiServices
+namespace PlzGrammarCore.ApiServices
 {
     [RestResource]
     public class TestResource

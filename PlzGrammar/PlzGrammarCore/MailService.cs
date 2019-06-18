@@ -1,6 +1,7 @@
 ﻿using System;
+using PlzGrammarCore.Model;
 
-namespace PlzGrammarConsole
+namespace PlzGrammarCore
 {
     class MailService
     {

@@ -1,13 +1,12 @@
 using System.Collections.Generic;
-using SendMailServiceConsole;
 
-namespace PlzGrammarConsole
+namespace PlzGrammarCore.Model
 {
     class Subscriber
     {
         public string Guid { get; set; }
         public SubscribeTypes SubscribeType { get; set; }
-        private Dictionary<SubscribeTypes, string> _idBySubscribeType;
+        private Dictionary<SubscribeTypes, string> _idBySubscribeType = new Dictionary<SubscribeTypes, string>();
 
         public string GetTarget()
         {

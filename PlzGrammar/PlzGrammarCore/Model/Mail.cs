@@ -1,6 +1,5 @@
-﻿using SendMailServiceConsole;
-
-namespace PlzGrammarConsole
+﻿
+namespace PlzGrammarCore.Model
 {
     class Mail
     {

@@ -3,20 +3,14 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <AssemblyName>PlzGrammarConsole</AssemblyName>
-    <RootNamespace>PlzGrammarConsole</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>0</WarningLevel>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Apis.Gmail.v1" Version="1.40.1.1613" />
-    <PackageReference Include="Grapevine.Core" Version="4.1.1.2" />
-    <PackageReference Include="MailKit" Version="2.1.5.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="credentials.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\PlzGrammarCore\PlzGrammarCore.csproj" />
   </ItemGroup>
 
 </Project>

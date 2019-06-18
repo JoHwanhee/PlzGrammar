@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using PlzGrammarCore.Model;
 
-namespace PlzGrammarConsole
+namespace PlzGrammarCore.DataBase
 {
     class MailRepository
     {

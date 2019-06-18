@@ -1,10 +1,11 @@
 ﻿using System;
 using Grapevine.Core.Server;
-using SendMailServiceConsole;
+using PlzGrammarCore.DataBase;
+using PlzGrammarCore.Model;
 
-namespace PlzGrammarConsole
+namespace PlzGrammarCore
 {
-    internal class PlzGrammarServer
+    public class PlzGrammarServer
     {
         private RestServer _restServer;
         public PlzGrammarServer()

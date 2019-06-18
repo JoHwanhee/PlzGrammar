@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using PlzGrammarCore.DataBase;
 
-namespace PlzGrammarConsole
+namespace PlzGrammarCore.Model
 {
     class Subscribers
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using SendMailServiceConsole;
+using PlzGrammarCore.Model;
 
-namespace PlzGrammarConsole
+namespace PlzGrammarCore.DataBase
 {
     class MongoDb
     {
