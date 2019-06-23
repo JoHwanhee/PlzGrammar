@@ -8,8 +8,13 @@ namespace PlzGrammarCore
     public class PlzGrammarServer
     {
         private RestServer _restServer;
-        public PlzGrammarServer()
+        private string _host;
+        private string _port;
+
+        public PlzGrammarServer(string host, string port)
         {
+            _host = host;
+            _port = port;
         }
 
         public void Start()
@@ -21,6 +26,8 @@ namespace PlzGrammarCore
             if (_restServer == null)
             {
                 _restServer = new RestServer();
+                _restServer.Host = _host;
+                _restServer.Port = _port;
             }
 
             _restServer.LogToConsole().Start();
