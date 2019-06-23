@@ -25,9 +25,11 @@ namespace PlzGrammarCore
 
             if (_restServer == null)
             {
-                _restServer = new RestServer();
-                _restServer.Host = _host;
-                _restServer.Port = _port;
+                _restServer = new RestServer
+                {
+                    Host = _host,
+                    Port = _port
+                };
             }
 
             _restServer.LogToConsole().Start();

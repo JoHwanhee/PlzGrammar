@@ -25,12 +25,5 @@ namespace PlzGrammarCore.ApiServices
             context.Response.SendResponse(HttpStatusCode.Ok, reponseString);
             return context;
         }
-        
-        [RestRoute]
-        public IHttpContext HelloWorld(IHttpContext context)
-        {
-            context.Response.SendResponse("Hello, world.");
-            return context;
-        }
     }
 }
