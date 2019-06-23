@@ -16,13 +16,13 @@ namespace PlzGrammarCore.ApiServices
         {
             var defaultProblem = _problemManager.GetProblem(-1).ToJson();
             var reponseString = defaultProblem.ToString();
-            var buffer = context.Request.ContentEncoding.GetBytes(reponseString);
-            var length = buffer.Length;
+            
 
+            context.Response.Headers.Add("Access-Control-Allow-Origin", "*");
             context.Response.ContentType = ContentType.JSON;
             context.Response.ContentEncoding = Encoding.UTF8;
-            context.Response.ContentLength64 = length;
-            context.Response.SendResponse(HttpStatusCode.Ok, reponseString);
+            
+            context.Response.SendResponse(reponseString, Encoding.UTF8);
             return context;
         }
     }

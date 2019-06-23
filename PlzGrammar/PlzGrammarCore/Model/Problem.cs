@@ -13,6 +13,7 @@ namespace PlzGrammarCore.Model
         public string Content { get; set; }
         public List<string> Answers { get; set; } = new List<string>();
         public int CorrectAnswerIndex { get; set; }
+        public string IconName { get; set; }
         public string Answer { get; private set; }
 
         public Problem(ProblemType type, string id)
@@ -21,7 +22,7 @@ namespace PlzGrammarCore.Model
             Id = id;
         }
 
-        private void SetAnswer()
+        protected void SetAnswer()
         {
             if (Answers.Count > 0 && Answers.Count > CorrectAnswerIndex)
             {
@@ -45,9 +46,8 @@ namespace PlzGrammarCore.Model
 
             json["answers"] = answers;
             json["correctAnswerIndex"] = CorrectAnswerIndex;
-
-            SetAnswer();
             json["answer"] = Answer;
+            json["iconName"] = IconName;
 
             return json;
         }
