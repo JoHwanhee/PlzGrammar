@@ -103,7 +103,7 @@ namespace PlzGrammarCore.Model
             var commentary = json.Value<string>("commentary");
 
             Problem problem = new Problem(type, id);
-            problem.Title = content;
+            problem.Content = content;
             problem.Title = title;
             problem.Answers = answerList;
             problem.CorrectAnswerIndex = correctAnswerIndex;
