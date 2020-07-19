@@ -12,7 +12,7 @@ namespace PlzGrammarCoreTest
         }
 
         [Test]
-        public void JSONÆ÷¸ËÀ¸·Î_Problem°´Ã¼¸¦_¸¸µé¾î¾ßµÈ´Ù()
+        public void JSON_Problem()
         {
             DefaultProblem defaultProblem = new DefaultProblem();
             Problem problem = Problem.Create(defaultProblem.ToJson().ToString());
@@ -31,26 +31,26 @@ namespace PlzGrammarCoreTest
         }
 
         [Test]
-        public void Problems_JSON_ÀÐ±âÅ×½ºÆ®()
+        public void Problems_JSON()
         {
             var problemManager = ProblemManager.Instance;
             var problem = problemManager.GetProblem(0);
 
-            if (problem.Answer != "±Ý¼¼")
+            if (problem.Answer != "ï¿½Ý¼ï¿½")
             {
-                Assert.Pass("ÇÑ±ÛÀÌ ¾ÈµÈ´Àµí..");
+                Assert.Pass("ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ÈµÈ´ï¿½ï¿½ï¿½..");
             }
 
             if (problem.Id == "default")
             {
-                Assert.Pass("±¸¿ì¿ô");
+                Assert.Pass("ï¿½ï¿½ï¿½ï¿½ï¿½");
             }
             else
             {
                 Assert.Fail();
             }
+
+            Assert.Pass();
         }
-
-
     }
 }
